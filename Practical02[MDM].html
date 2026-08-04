@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Resume</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#fff;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+border:2px solid #000;
+padding:15px;
+}
+
+header{
+text-align:center;
+border-bottom:2px solid #000;
+padding-bottom:10px;
+margin-bottom:15px;
+}
+
+header h1{
+font-size:32px;
+letter-spacing:2px;
+}
+
+header p{
+font-size:16px;
+margin-top:5px;
+}
+
+nav{
+text-align:center;
+padding:8px;
+border-bottom:1px solid #000;
+margin-bottom:15px;
+}
+
+nav a{
+text-decoration:none;
+color:black;
+margin:0 12px;
+font-weight:bold;
+}
+
+.profile{
+display:flex;
+gap:20px;
+border-bottom:1px solid black;
+padding-bottom:15px;
+margin-bottom:15px;
+}
+
+.avatar{
+width:140px;
+height:140px;
+border:3px solid black;
+border-radius:50%;
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+}
+
+.head{
+width:40px;
+height:40px;
+border:3px solid black;
+border-radius:50%;
+position:absolute;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.bodyicon{
+width:80px;
+height:48px;
+border:3px solid black;
+border-bottom:none;
+border-top-left-radius:60px;
+border-top-right-radius:60px;
+position:absolute;
+bottom:18px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.about{
+flex:1;
+}
+
+.about h2{
+margin-bottom:10px;
+border-bottom:1px solid black;
+padding-bottom:4px;
+}
+
+.about p{
+margin:6px 0;
+font-size:15px;
+}
+
+section{
+margin-bottom:15px;
+}
+
+section h2{
+border-bottom:1px solid black;
+padding-bottom:5px;
+margin-bottom:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th,
+table td{
+border:1px solid black;
+padding:8px;
+text-align:center;
+}
+
+.two-column{
+display:flex;
+gap:20px;
+}
+
+article,
+aside{
+flex:1;
+border:1px solid black;
+padding:10px;
+}
+
+ul{
+padding-left:18px;
+}
+
+li{
+margin:6px 0;
+}
+
+footer{
+border-top:2px solid black;
+text-align:center;
+padding-top:10px;
+font-size:14px;
+}
+
+.contact p{
+margin:6px 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>KETKI GAIDHANE</h1>
+<p>B.Tech in Artificial Intelligence & Machine Learning</p>
+<p>Professional Placement Portfolio</p>
+</header>
+
+<nav>
+<a href="#about">About</a> |
+<a href="#education">Education</a> |
+<a href="#skills">Skills</a> |
+<a href="#hobbies">Hobbies</a> |
+<a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+<section class="profile" id="about">
+
+<div class="avatar">
+<div class="head"></div>
+<div class="bodyicon"></div>
+</div>
+
+<div class="about">
+
+<h2>About Me</h2>
+
+<p><strong>Name :</strong> Ketki Gaidhane</p>
+
+<p><strong>Course :</strong> B.Tech (Artificial Intelligence & Machine Learning)</p>
+
+<p><strong>College :</strong> SB Jain Institute of Technology, Management & Research, Nagpur</p>
+
+<p><strong>Career Objective :</strong> Passionate AIML student seeking opportunities to apply technical knowledge, improve problem-solving skills and contribute to innovative software solutions.</p>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<h2>Education</h2>
+
+<table>
+
+<tr>
+<th>Qualification</th>
+<th>Institute</th>
+<th>Year</th>
+<th>Percentage / CGPA</th>
+</tr>
+
+<tr>
+<td>B.Tech (AIML)</td>
+<td>SBJITMR</td>
+<td>2025 - Present</td>
+<td>10.0 CGPA</td>
+</tr>
+
+<tr>
+<td>HSC</td>
+<td>PJC</td>
+<td>2024</td>
+<td>99%</td>
+</tr>
+
+<tr>
+<td>SSC</td>
+<td>SSMUB</td>
+<td>2022</td>
+<td>90%</td>
+</tr>
+
+</table>
+
+</section>
+
+<div class="two-column">
+
+<article id="skills">
+
+<h2>Technical Skills</h2>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Java</li>
+<li>Python</li>
+<li>C++</li>
+<li>Problem Solving</li>
+</ul>
+
+</article>
+
+<aside id="hobbies">
+
+<h2>Hobbies</h2>
+
+<ul>
+<li>Graphic Designing</li>
+<li>Video Editing</li>
+<li>Reading Books</li>
+<li>Listening to Music</li>
+<li>Learning AI Tools</li>
+</ul>
+
+</aside>
+
+</div>
+
+<section class="contact" id="contact">
+
+<h2>Contact Information</h2>
+
+<p><strong>Email :</strong> ketkigaidhane@gmail.com</p>
+
+<p><strong>Phone :</strong> +91 7558244245</p>
+
+<p><strong>GitHub :</strong> github.com/ketkigaidhane</p>
+
+<p><strong>LinkedIn :</strong> linkedin.com/in/ketkigaidhane</p>
+
+<p><strong>Address :</strong> Nagpur, Maharashtra</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>© 2026 Ketki Gaidhane | Student Resume | All Rights Reserved</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
