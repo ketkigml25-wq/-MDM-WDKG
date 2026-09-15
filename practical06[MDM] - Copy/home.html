@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScoreBloom - Grade Calculator</title>
+
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+
+    <div class="background-circle circle-one"></div>
+    <div class="background-circle circle-two"></div>
+
+    <main class="calculator">
+
+        <!-- Header -->
+        <section class="header">
+            <span class="tag">STUDENT RESULT TOOL</span>
+
+            <h1>ScoreBloom</h1>
+
+            <p>
+                Turn your marks into your result ✨
+            </p>
+        </section>
+
+
+        <!-- Marks Form -->
+        <form id="gradeForm">
+
+            <div class="subjects">
+
+                <div class="subject">
+                    <label for="mml">MML</label>
+                    <input
+                        type="number"
+                        id="mml"
+                        placeholder="Enter marks"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                    >
+                </div>
+
+                <div class="subject">
+                    <label for="dsa">DSA</label>
+                    <input
+                        type="number"
+                        id="dsa"
+                        placeholder="Enter marks"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                    >
+                </div>
+
+                <div class="subject">
+                    <label for="oops">OOPS</label>
+                    <input
+                        type="number"
+                        id="oops"
+                        placeholder="Enter marks"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                    >
+                </div>
+
+                <div class="subject">
+                    <label for="python">PYTHON</label>
+                    <input
+                        type="number"
+                        id="python"
+                        placeholder="Enter marks"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                    >
+                </div>
+
+                <div class="subject">
+                    <label for="ic">IC</label>
+                    <input
+                        type="number"
+                        id="ic"
+                        placeholder="Enter marks"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                    >
+                </div>
+
+            </div>
+
+
+            <p id="errorMessage" class="error-message"></p>
+
+
+            <button type="submit" class="calculate-btn">
+                Reveal My Result ✨
+            </button>
+
+        </form>
+
+
+        <!-- Result -->
+        <section id="result" class="result-card">
+
+            <p class="result-label">
+                YOUR RESULT
+            </p>
+
+            <div class="grade-circle">
+                <span id="grade">-</span>
+            </div>
+
+            <div class="result-info">
+
+                <div class="result-item">
+                    <span>Total Marks</span>
+                    <strong id="total">0 / 500</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Percentage</span>
+                    <strong id="percentage">0%</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Status</span>
+                    <strong id="status">-</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <p class="footer-text">
+            Made for practical sessions • ScoreBloom
+        </p>
+
+    </main>
+
+
+    <script src="calculator.js"></script>
+
+</body>
+</html>

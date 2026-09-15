@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(135deg, #dbeafe, #f5d0fe, #fce7f3);
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* Background Decorative Circles */
+
+.background-circle {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+
+    filter: blur(5px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.circle-one {
+    background: #c4b5fd;
+    top: -80px;
+    left: -80px;
+}
+
+.circle-two {
+    background: #f9a8d4;
+    bottom: -100px;
+    right: -70px;
+}
+
+
+/* Main Glass Card */
+
+.calculator {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 60px rgba(80, 50, 100, 0.18);
+}
+
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: #7c3aed;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.header h1 {
+    margin-top: 12px;
+
+    font-size: 42px;
+
+    color: #3b2754;
+}
+
+.header p {
+    margin-top: 8px;
+
+    color: #6b5878;
+}
+
+
+/* Subjects */
+
+.subjects {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.subject:last-child {
+    grid-column: span 2;
+}
+
+.subject label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #49365c;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.subject input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: #3b2754;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.subject input::placeholder {
+    color: #a18eae;
+}
+
+.subject input:focus {
+    border-color: #a78bfa;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 0 4px rgba(167, 139, 250, 0.15);
+}
+
+
+/* Error */
+
+.error-message {
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 14px;
+}
+
+
+/* Calculate Button */
+
+.calculate-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(139, 92, 246, 0.25);
+
+    transition: 0.3s;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 15px 30px rgba(139, 92, 246, 0.35);
+}
+
+.calculate-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* Result Card */
+
+.result-card {
+    margin-top: 30px;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    text-align: center;
+
+    display: none;
+}
+
+.result-card.show {
+    display: block;
+
+    animation: revealResult 0.7s ease forwards;
+}
+
+@keyframes revealResult {
+
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    60% {
+        transform: translateY(-5px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Result Grade */
+
+.result-label {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #8b6f9c;
+
+    font-weight: bold;
+}
+
+.grade-circle {
+    width: 100px;
+    height: 100px;
+
+    margin: 18px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    box-shadow:
+        0 12px 30px rgba(139, 92, 246, 0.3);
+}
+
+.grade-circle span {
+    color: white;
+
+    font-size: 38px;
+    font-weight: bold;
+}
+
+
+/* Result Information */
+
+.result-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.result-item {
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.result-item span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #8b748f;
+}
+
+.result-item strong {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #463252;
+
+    font-size: 16px;
+}
+
+
+/* Footer */
+
+.footer-text {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #8d7897;
+
+    font-size: 12px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .calculator {
+        padding: 25px 20px;
+    }
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+    .subjects {
+        grid-template-columns: 1fr;
+    }
+
+    .subject:last-child {
+        grid-column: span 1;
+    }
+
+    .result-info {
+        grid-template-columns: 1fr;
+    }
+}
