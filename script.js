@@ -1,190 +1,273 @@
-const itemsContainer = document.getElementById("itemsContainer");
-const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
-const reportForm = document.getElementById("reportForm");
-const successMessage = document.getElementById("successMessage");
 
-let items = [
-    {
-        name: "Scientific Calculator",
-        category: "Electronics",
-        status: "Lost",
-        location: "Computer Lab"
-    },
-    {
-        name: "Engineering Mathematics Book",
-        category: "Books",
-        status: "Found",
-        location: "Library"
-    },
-    {
-        name: "College ID Card",
-        category: "Documents",
-        status: "Lost",
-        location: "Main Gate"
-    },
-    {
-        name: "Black Water Bottle",
-        category: "Others",
-        status: "Found",
-        location: "Canteen"
-    },
-    {
-        name: "USB Drive",
-        category: "Electronics",
-        status: "Lost",
-        location: "Seminar Hall"
-    },
-    {
-        name: "Blue Backpack",
-        category: "Accessories",
-        status: "Found",
-        location: "Parking Area"
+const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskList = document.getElementById("taskList");
+const clearAllBtn = document.getElementById("clearAllBtn");
+
+const totalCount = document.getElementById("totalCount");
+const completedCount = document.getElementById("completedCount");
+const pendingCount = document.getElementById("pendingCount");
+
+const emptyMessage = document.getElementById("emptyMessage");
+
+
+// Load tasks from Local Storage
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+
+// Display existing tasks
+displayTasks();
+
+
+// Add task using button
+addTaskBtn.addEventListener("click", addTask);
+
+
+// Add task using Enter key
+taskInput.addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+        addTask();
     }
-];
+
+});
 
 
-// Display items
-function displayItems() {
+// Add Task Function
+function addTask() {
 
-    const searchText = searchInput.value.toLowerCase();
-    const selectedCategory = categoryFilter.value;
+    const taskText = taskInput.value.trim();
 
-    const filteredItems = items.filter(function(item) {
-
-        const matchesSearch =
-            item.name.toLowerCase().includes(searchText);
-
-        const matchesCategory =
-            selectedCategory === "all" ||
-            item.category === selectedCategory;
-
-        return matchesSearch && matchesCategory;
-    });
-
-
-    itemsContainer.innerHTML = "";
-
-
-    if (filteredItems.length === 0) {
-
-        itemsContainer.innerHTML = `
-            <div class="col-span-full text-center py-10">
-                <p class="text-gray-500">
-                    No matching items found.
-                </p>
-            </div>
-        `;
-
+    // Check empty input
+    if (taskText === "") {
+        alert("Please enter a task.");
         return;
     }
 
 
-    filteredItems.forEach(function(item) {
-
-        const statusStyle =
-            item.status === "Lost"
-            ? "bg-red-100 text-red-700"
-            : "bg-green-100 text-green-700";
-
-
-        const card = document.createElement("div");
-
-        card.className =
-            "bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition";
+    // Create task object
+    const task = {
+        id: Date.now(),
+        text: taskText,
+        completed: false
+    };
 
 
-        card.innerHTML = `
-            <div class="flex justify-between items-start mb-4">
+    // Add task to array
+    tasks.push(task);
 
-                <div>
-                    <h3 class="font-bold text-lg">
-                        ${item.name}
-                    </h3>
 
-                    <p class="text-sm text-gray-500">
-                        ${item.category}
-                    </p>
-                </div>
+    // Save tasks
+    saveTasks();
 
-                <span class="px-3 py-1 rounded-full text-xs font-semibold ${statusStyle}">
-                    ${item.status}
-                </span>
 
-            </div>
+    // Display tasks
+    displayTasks();
 
-            <p class="text-gray-600">
-                📍 ${item.location}
-            </p>
 
-            <button
-                onclick="contactStudent('${item.name}')"
-                class="mt-5 w-full border border-blue-600
-                       text-blue-600 py-2 rounded-lg
-                       hover:bg-blue-50">
-                Contact
-            </button>
-        `;
+    // Clear input
+    taskInput.value = "";
 
-        itemsContainer.appendChild(card);
-    });
+    taskInput.focus();
 }
 
 
-// Search
-searchInput.addEventListener("input", displayItems);
+// Display Tasks
+function displayTasks() {
+
+    taskList.innerHTML = "";
 
 
-// Category filter
-categoryFilter.addEventListener("change", displayItems);
+    // Show empty message
+    if (tasks.length === 0) {
+
+        emptyMessage.classList.remove("hidden");
+
+    } else {
+
+        emptyMessage.classList.add("hidden");
+    }
 
 
-// Report new item
-reportForm.addEventListener("submit", function(event) {
+    // Create each task
+    tasks.forEach(function(task) {
 
-    event.preventDefault();
+        const li = document.createElement("li");
 
-    const newItem = {
-        name: document.getElementById("itemName").value,
-        category: document.getElementById("itemCategory").value,
-        status: document.getElementById("itemStatus").value,
-        location: document.getElementById("itemLocation").value
-    };
-
-    items.push(newItem);
-
-    reportForm.reset();
-
-    successMessage.classList.remove("hidden");
-
-    displayItems();
-
-    setTimeout(function() {
-        successMessage.classList.add("hidden");
-    }, 3000);
-});
+        li.className =
+            "bg-gray-800 border border-gray-700 rounded-lg " +
+            "p-4 flex items-center gap-3";
 
 
-// Contact button
-function contactStudent(itemName) {
+        // Checkbox
+        const checkbox = document.createElement("input");
 
-    alert(
-        "Contact option selected for: " +
-        itemName +
-        "\nPlease contact the college Lost & Found desk."
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+
+        checkbox.className =
+            "w-5 h-5 accent-blue-600 cursor-pointer";
+
+
+        // Task Text
+        const taskText = document.createElement("span");
+
+        taskText.textContent = task.text;
+
+        taskText.className =
+            "flex-1 text-gray-200 break-words";
+
+
+        // Completed styling
+        if (task.completed) {
+
+            taskText.classList.add(
+                "line-through",
+                "text-gray-500"
+            );
+        }
+
+
+        // Checkbox event
+        checkbox.addEventListener("change", function() {
+
+            task.completed = checkbox.checked;
+
+            saveTasks();
+
+            displayTasks();
+
+        });
+
+
+        // Edit Button
+        const editButton = document.createElement("button");
+
+        editButton.textContent = "Edit";
+
+        editButton.className =
+            "text-blue-400 hover:text-blue-300 text-sm";
+
+
+        editButton.addEventListener("click", function() {
+
+            const newText = prompt(
+                "Edit your task:",
+                task.text
+            );
+
+
+            if (newText !== null) {
+
+                const updatedText = newText.trim();
+
+
+                if (updatedText !== "") {
+
+                    task.text = updatedText;
+
+                    saveTasks();
+
+                    displayTasks();
+                }
+            }
+
+        });
+
+
+        // Delete Button
+        const deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+
+        deleteButton.className =
+            "text-red-400 hover:text-red-300 text-sm";
+
+
+        deleteButton.addEventListener("click", function() {
+
+            tasks = tasks.filter(function(item) {
+
+                return item.id !== task.id;
+
+            });
+
+
+            saveTasks();
+
+            displayTasks();
+
+        });
+
+
+        // Add elements to task
+        li.appendChild(checkbox);
+        li.appendChild(taskText);
+        li.appendChild(editButton);
+        li.appendChild(deleteButton);
+
+
+        // Add task to list
+        taskList.appendChild(li);
+
+    });
+
+
+    // Update counters
+    updateCounts();
+}
+
+
+// Update Task Counters
+function updateCounts() {
+
+    const total = tasks.length;
+
+    const completed = tasks.filter(function(task) {
+
+        return task.completed;
+
+    }).length;
+
+    const pending = total - completed;
+
+
+    totalCount.textContent = total;
+    completedCount.textContent = completed;
+    pendingCount.textContent = pending;
+}
+
+
+// Save tasks to Local Storage
+function saveTasks() {
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
     );
 }
 
 
-// Scroll to report section
-function scrollToReport() {
+// Clear All Tasks
+clearAllBtn.addEventListener("click", function() {
 
-    document.getElementById("reportSection")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-}
+    if (tasks.length === 0) {
+        return;
+    }
 
 
-// Initial display
-displayItems();
+    const confirmClear = confirm(
+        "Are you sure you want to delete all tasks?"
+    );
+
+
+    if (confirmClear) {
+
+        tasks = [];
+
+        saveTasks();
+
+        displayTasks();
+    }
+
+});

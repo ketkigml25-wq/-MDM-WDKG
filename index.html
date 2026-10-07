@@ -1,169 +1,139 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Lost & Found</title>
 
+    <title>Personal To-Do List</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-950 text-white min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-white border-b">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row
-                    justify-between items-center gap-4">
+    <!-- Main Container -->
+    <div class="max-w-2xl mx-auto px-5 py-10">
 
-            <div>
-                <h1 class="text-2xl font-bold text-blue-700">
-                    Campus Lost & Found
-                </h1>
-                <p class="text-sm text-gray-500">
-                    Helping students find what they lost
-                </p>
-            </div>
+        <!-- Header -->
+        <div class="text-center mb-8">
 
-            <button onclick="scrollToReport()"
-                class="bg-blue-600 text-white px-5 py-2 rounded-lg
-                       hover:bg-blue-700">
-                Report Item
-            </button>
-        </div>
-    </header>
-
-
-    <!-- Home -->
-    <section class="max-w-6xl mx-auto px-6 py-10 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-3">
-            Lost Something on Campus?
-        </h2>
-
-        <p class="text-gray-600 mb-7">
-            Search lost and found items and reconnect with your belongings.
-        </p>
-
-        <!-- Search -->
-        <div class="max-w-xl mx-auto">
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search item e.g. Calculator, ID Card..."
-                class="w-full border border-gray-300 rounded-lg px-4 py-3
-                       focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-        </div>
-    </section>
-
-
-    <!-- Items -->
-    <section class="max-w-6xl mx-auto px-6 pb-12">
-
-        <div class="flex flex-col md:flex-row justify-between
-                    items-center gap-4 mb-6">
-
-            <h2 class="text-2xl font-bold">Campus Items</h2>
-
-            <select id="categoryFilter"
-                class="border border-gray-300 rounded-lg px-4 py-2 bg-white">
-
-                <option value="all">All Categories</option>
-                <option value="Books">Books</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Accessories">Accessories</option>
-                <option value="Documents">Documents</option>
-                <option value="Others">Others</option>
-            </select>
-        </div>
-
-
-        <!-- Cards -->
-        <div id="itemsContainer"
-             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        </div>
-
-    </section>
-
-
-    <!-- Report Item -->
-    <section id="reportSection"
-        class="bg-white border-t py-10">
-
-        <div class="max-w-xl mx-auto px-6">
-
-            <h2 class="text-2xl font-bold text-center mb-2">
-                Report a Lost / Found Item
-            </h2>
-
-            <p class="text-center text-gray-500 mb-6">
-                Add basic details to help other students.
+            <p class="text-blue-400 text-sm font-semibold tracking-widest">
+                DAILY PLANNER
             </p>
 
-            <form id="reportForm" class="space-y-4">
+            <h1 class="text-4xl font-bold mt-2">
+                My To-Do List
+            </h1>
+
+            <p class="text-gray-400 mt-2">
+                Organize your academic and personal tasks.
+            </p>
+
+        </div>
+
+
+        <!-- Add Task Card -->
+        <div class="bg-gray-900 border border-gray-800
+                    rounded-xl p-5 mb-6">
+
+            <div class="flex flex-col sm:flex-row gap-3">
 
                 <input
-                    id="itemName"
                     type="text"
-                    placeholder="Item Name"
-                    class="w-full border rounded-lg px-4 py-3"
-                    required
-                >
-
-                <select
-                    id="itemCategory"
-                    class="w-full border rounded-lg px-4 py-3"
-                    required>
-
-                    <option value="">Select Category</option>
-                    <option value="Books">Books</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Accessories">Accessories</option>
-                    <option value="Documents">Documents</option>
-                    <option value="Others">Others</option>
-                </select>
-
-                <select
-                    id="itemStatus"
-                    class="w-full border rounded-lg px-4 py-3"
-                    required>
-
-                    <option value="">Select Status</option>
-                    <option value="Lost">Lost</option>
-                    <option value="Found">Found</option>
-                </select>
-
-                <input
-                    id="itemLocation"
-                    type="text"
-                    placeholder="Location"
-                    class="w-full border rounded-lg px-4 py-3"
-                    required
+                    id="taskInput"
+                    placeholder="Enter a new task..."
+                    class="flex-1 bg-gray-800 border border-gray-700
+                           rounded-lg px-4 py-3
+                           text-white outline-none
+                           focus:border-blue-500"
                 >
 
                 <button
-                    type="submit"
-                    class="w-full bg-blue-600 text-white py-3 rounded-lg
-                           hover:bg-blue-700">
-                    Submit Report
+                    id="addTaskBtn"
+                    class="bg-blue-600 hover:bg-blue-700
+                           px-6 py-3 rounded-lg
+                           font-semibold">
+                    Add Task
                 </button>
 
-            </form>
+            </div>
 
-            <p id="successMessage"
-               class="text-green-600 text-center mt-4 hidden">
-                Item reported successfully!
+        </div>
+
+
+        <!-- Task Statistics -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Total</p>
+                <p id="totalCount" class="text-2xl font-bold mt-1">0</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Completed</p>
+                <p id="completedCount"
+                   class="text-2xl font-bold text-green-400 mt-1">
+                    0
+                </p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Pending</p>
+                <p id="pendingCount"
+                   class="text-2xl font-bold text-yellow-400 mt-1">
+                    0
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Task List -->
+        <div class="bg-gray-900 border border-gray-800
+                    rounded-xl p-5">
+
+            <div class="flex items-center justify-between mb-5">
+
+                <h2 class="text-xl font-bold">
+                    My Tasks
+                </h2>
+
+                <button
+                    id="clearAllBtn"
+                    class="text-red-400 hover:text-red-300 text-sm">
+                    Clear All
+                </button>
+
+            </div>
+
+            <ul id="taskList" class="space-y-3">
+            </ul>
+
+            <p id="emptyMessage"
+               class="text-center text-gray-500 py-8">
+                No tasks added yet.
             </p>
 
         </div>
-    </section>
 
 
-    <!-- Footer -->
-    <footer class="bg-gray-100 text-center py-5 text-sm text-gray-500">
-        © 2026 Campus Lost & Found Portal
-    </footer>
+        <!-- Footer -->
+        <p class="text-center text-gray-600 text-sm mt-8">
+            Stay organized. Stay productive.
+        </p>
+
+    </div>
 
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
+
