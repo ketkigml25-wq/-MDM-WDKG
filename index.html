@@ -1,89 +1,139 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Portal</title>
 
-    <link rel="stylesheet" href="style.css">
+    <title>Personal To-Do List</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-950 text-white min-h-screen">
 
-    <div class="container">
+    <!-- Main Container -->
+    <div class="max-w-2xl mx-auto px-5 py-10">
 
-        <div class="form-card">
+        <!-- Header -->
+        <div class="text-center mb-8">
 
-            <div class="header">
-                <p>COLLEGE ADMISSION PORTAL</p>
-                <h1>Student Registration</h1>
-                <span>Enter your details to create your registration.</span>
-            </div>
+            <p class="text-blue-400 text-sm font-semibold tracking-widest">
+                DAILY PLANNER
+            </p>
 
-            <form id="registrationForm">
+            <h1 class="text-4xl font-bold mt-2">
+                My To-Do List
+            </h1>
 
-                <!-- Full Name -->
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your full name"
-                    >
-                    <small id="nameError"></small>
-                </div>
-
-
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input
-                        type="text"
-                        id="email"
-                        placeholder="example@email.com"
-                    >
-                    <small id="emailError"></small>
-                </div>
-
-
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                    >
-                    <small id="passwordError"></small>
-                </div>
-
-
-                <!-- Mobile -->
-                <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
-                    <input
-                        type="text"
-                        id="mobile"
-                        placeholder="Enter 10-digit mobile number"
-                    >
-                    <small id="mobileError"></small>
-                </div>
-
-
-                <button type="submit">
-                    Register Now
-                </button>
-
-                <div id="successMessage"></div>
-
-            </form>
+            <p class="text-gray-400 mt-2">
+                Organize your academic and personal tasks.
+            </p>
 
         </div>
 
+
+        <!-- Add Task Card -->
+        <div class="bg-gray-900 border border-gray-800
+                    rounded-xl p-5 mb-6">
+
+            <div class="flex flex-col sm:flex-row gap-3">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a new task..."
+                    class="flex-1 bg-gray-800 border border-gray-700
+                           rounded-lg px-4 py-3
+                           text-white outline-none
+                           focus:border-blue-500"
+                >
+
+                <button
+                    id="addTaskBtn"
+                    class="bg-blue-600 hover:bg-blue-700
+                           px-6 py-3 rounded-lg
+                           font-semibold">
+                    Add Task
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Task Statistics -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Total</p>
+                <p id="totalCount" class="text-2xl font-bold mt-1">0</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Completed</p>
+                <p id="completedCount"
+                   class="text-2xl font-bold text-green-400 mt-1">
+                    0
+                </p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800
+                        rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Pending</p>
+                <p id="pendingCount"
+                   class="text-2xl font-bold text-yellow-400 mt-1">
+                    0
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Task List -->
+        <div class="bg-gray-900 border border-gray-800
+                    rounded-xl p-5">
+
+            <div class="flex items-center justify-between mb-5">
+
+                <h2 class="text-xl font-bold">
+                    My Tasks
+                </h2>
+
+                <button
+                    id="clearAllBtn"
+                    class="text-red-400 hover:text-red-300 text-sm">
+                    Clear All
+                </button>
+
+            </div>
+
+            <ul id="taskList" class="space-y-3">
+            </ul>
+
+            <p id="emptyMessage"
+               class="text-center text-gray-500 py-8">
+                No tasks added yet.
+            </p>
+
+        </div>
+
+
+        <!-- Footer -->
+        <p class="text-center text-gray-600 text-sm mt-8">
+            Stay organized. Stay productive.
+        </p>
+
     </div>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
+
