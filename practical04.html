@@ -1,0 +1,408 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechElite - Product Showcase</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-5 py-5
+                    flex flex-col sm:flex-row
+                    items-center justify-between gap-4">
+
+            <h1 class="text-2xl font-bold tracking-wide">
+                Tech<span class="text-blue-600">Elite</span>
+            </h1>
+
+            <nav class="flex flex-wrap justify-center gap-5 text-sm font-medium">
+                <a href="#" class="hover:text-blue-600">Home</a>
+                <a href="#" class="hover:text-blue-600">Products</a>
+                <a href="#" class="hover:text-blue-600">About</a>
+                <a href="#" class="hover:text-blue-600">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-5 py-12
+                    flex flex-col md:flex-row
+                    items-center justify-between gap-10">
+
+            <div class="text-center md:text-left">
+
+                <p class="text-blue-600 font-semibold tracking-widest text-sm mb-3">
+                    PREMIUM ELECTRONICS
+                </p>
+
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl
+                           font-bold leading-tight mb-5">
+                    Technology Made<br>
+                    <span class="text-blue-600">Beautiful.</span>
+                </h2>
+
+                <p class="text-gray-600 max-w-xl mb-7">
+                    Discover our carefully selected collection of
+                    modern electronics designed for performance,
+                    comfort and style.
+                </p>
+
+                <button class="bg-blue-600 text-white
+                               px-7 py-3 rounded-lg
+                               font-semibold
+                               hover:bg-blue-700 transition">
+                    Explore Products
+                </button>
+
+            </div>
+
+            <div class="text-center">
+                <div class="bg-blue-50 rounded-3xl
+                            w-64 h-64 sm:w-72 sm:h-72
+                            flex items-center justify-center">
+
+                    <span class="text-8xl">💻</span>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PRODUCT SECTION -->
+    <main class="max-w-7xl mx-auto px-5 py-12">
+
+        <div class="text-center mb-10">
+            <p class="text-blue-600 font-semibold text-sm tracking-widest">
+                OUR COLLECTION
+            </p>
+
+            <h2 class="text-3xl sm:text-4xl font-bold mt-2">
+                Featured Electronics
+            </h2>
+
+            <p class="text-gray-500 mt-3">
+                Premium technology for your everyday needs.
+            </p>
+        </div>
+
+
+        <!-- FLEXBOX PRODUCT GRID -->
+        <div class="flex flex-col sm:flex-row sm:flex-wrap
+                    lg:flex-nowrap
+                    justify-center items-stretch
+                    gap-6">
+
+
+            <!-- PRODUCT 1 -->
+            <div class="bg-white border border-gray-200
+                        rounded-2xl overflow-hidden
+                        shadow-sm hover:shadow-lg
+                        transition
+                        flex flex-col
+                        w-full sm:w-[47%] lg:w-1/5">
+
+                <div class="h-44 bg-blue-50
+                            flex items-center justify-center">
+
+                    <span class="text-7xl">🎧</span>
+
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+
+                    <p class="text-xs text-blue-600 font-semibold">
+                        AUDIO
+                    </p>
+
+                    <h3 class="text-lg font-bold mt-1">
+                        Wireless Headphones
+                    </h3>
+
+                    <div class="text-yellow-500 mt-2">
+                        ★★★★★
+                        <span class="text-gray-400 text-xs">
+                            (128)
+                        </span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-3 flex-1">
+                        Premium wireless headphones with
+                        immersive sound and long battery life.
+                    </p>
+
+                    <div class="flex items-center justify-between mt-5">
+
+                        <span class="text-xl font-bold">
+                            ₹4,999
+                        </span>
+
+                        <button class="bg-blue-600 text-white
+                                       px-4 py-2 rounded-lg
+                                       text-sm font-semibold
+                                       hover:bg-blue-700">
+                            Buy Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="bg-white border border-gray-200
+                        rounded-2xl overflow-hidden
+                        shadow-sm hover:shadow-lg
+                        transition
+                        flex flex-col
+                        w-full sm:w-[47%] lg:w-1/5">
+
+                <div class="h-44 bg-purple-50
+                            flex items-center justify-center">
+
+                    <span class="text-7xl">⌚</span>
+
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+
+                    <p class="text-xs text-blue-600 font-semibold">
+                        WEARABLE
+                    </p>
+
+                    <h3 class="text-lg font-bold mt-1">
+                        Smart Watch Pro
+                    </h3>
+
+                    <div class="text-yellow-500 mt-2">
+                        ★★★★★
+                        <span class="text-gray-400 text-xs">
+                            (96)
+                        </span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-3 flex-1">
+                        Smart fitness tracking, notifications
+                        and elegant everyday design.
+                    </p>
+
+                    <div class="flex items-center justify-between mt-5">
+
+                        <span class="text-xl font-bold">
+                            ₹6,499
+                        </span>
+
+                        <button class="bg-blue-600 text-white
+                                       px-4 py-2 rounded-lg
+                                       text-sm font-semibold
+                                       hover:bg-blue-700">
+                            Buy Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="bg-white border border-gray-200
+                        rounded-2xl overflow-hidden
+                        shadow-sm hover:shadow-lg
+                        transition
+                        flex flex-col
+                        w-full sm:w-[47%] lg:w-1/5">
+
+                <div class="h-44 bg-green-50
+                            flex items-center justify-center">
+
+                    <span class="text-7xl">📱</span>
+
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+
+                    <p class="text-xs text-blue-600 font-semibold">
+                        MOBILE
+                    </p>
+
+                    <h3 class="text-lg font-bold mt-1">
+                        SmartPhone X
+                    </h3>
+
+                    <div class="text-yellow-500 mt-2">
+                        ★★★★☆
+                        <span class="text-gray-400 text-xs">
+                            (214)
+                        </span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-3 flex-1">
+                        Powerful performance, sharp camera
+                        and an immersive display.
+                    </p>
+
+                    <div class="flex items-center justify-between mt-5">
+
+                        <span class="text-xl font-bold">
+                            ₹24,999
+                        </span>
+
+                        <button class="bg-blue-600 text-white
+                                       px-4 py-2 rounded-lg
+                                       text-sm font-semibold
+                                       hover:bg-blue-700">
+                            Buy Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="bg-white border border-gray-200
+                        rounded-2xl overflow-hidden
+                        shadow-sm hover:shadow-lg
+                        transition
+                        flex flex-col
+                        w-full sm:w-[47%] lg:w-1/5">
+
+                <div class="h-44 bg-orange-50
+                            flex items-center justify-center">
+
+                    <span class="text-7xl">🔊</span>
+
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+
+                    <p class="text-xs text-blue-600 font-semibold">
+                        SPEAKERS
+                    </p>
+
+                    <h3 class="text-lg font-bold mt-1">
+                        Smart Speaker
+                    </h3>
+
+                    <div class="text-yellow-500 mt-2">
+                        ★★★★☆
+                        <span class="text-gray-400 text-xs">
+                            (87)
+                        </span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-3 flex-1">
+                        Compact smart speaker with powerful
+                        audio and voice control.
+                    </p>
+
+                    <div class="flex items-center justify-between mt-5">
+
+                        <span class="text-xl font-bold">
+                            ₹3,499
+                        </span>
+
+                        <button class="bg-blue-600 text-white
+                                       px-4 py-2 rounded-lg
+                                       text-sm font-semibold
+                                       hover:bg-blue-700">
+                            Buy Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="bg-white border border-gray-200
+                        rounded-2xl overflow-hidden
+                        shadow-sm hover:shadow-lg
+                        transition
+                        flex flex-col
+                        w-full sm:w-[47%] lg:w-1/5">
+
+                <div class="h-44 bg-pink-50
+                            flex items-center justify-center">
+
+                    <span class="text-7xl">💻</span>
+
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+
+                    <p class="text-xs text-blue-600 font-semibold">
+                        COMPUTING
+                    </p>
+
+                    <h3 class="text-lg font-bold mt-1">
+                        UltraBook Pro
+                    </h3>
+
+                    <div class="text-yellow-500 mt-2">
+                        ★★★★★
+                        <span class="text-gray-400 text-xs">
+                            (154)
+                        </span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-3 flex-1">
+                        Lightweight laptop built for work,
+                        study and creative tasks.
+                    </p>
+
+                    <div class="flex items-center justify-between mt-5">
+
+                        <span class="text-xl font-bold">
+                            ₹59,999
+                        </span>
+
+                        <button class="bg-blue-600 text-white
+                                       px-4 py-2 rounded-lg
+                                       text-sm font-semibold
+                                       hover:bg-blue-700">
+                            Buy Now
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white">
+
+        <div class="max-w-7xl mx-auto px-5 py-7
+                    flex flex-col sm:flex-row
+                    items-center justify-between gap-3">
+
+            <p class="font-semibold">
+                TechElite
+            </p>
+
+            <p class="text-gray-400 text-sm text-center">
+                © 2026 TechElite. Premium Electronics Collection.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
